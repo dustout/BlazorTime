@@ -1,6 +1,38 @@
 ﻿@page "/"
+@using System.Threading;
 
-<h1>Hello, world!</h1>
+<br />
+<h1 class="text-center">⌚ Time</h1>
+<hr />
 
-Welcome to your new app.
+<div class="row m-0">
+  <div class="col">
+    <p>
+      BROWSER DATE: <utc-to-local format="yyyy-mm-dd">@testTime.ToString("O")</utc-to-local>
+    </p>
+    <p>
+      BROWSER TIME: <utc-to-local format="shortTime">@testTime.ToString("O")</utc-to-local>
+    </p>
+    <p>
+      BROWSER DEFAULT: <utc-to-local>@testTime.ToString("O")</utc-to-local>
+    </p>
+    <p>
+      UTC (RENDERED IN BROWSER): <utc-to-local format="isoUtcDateTime">@testTime.ToString("O")</utc-to-local>
+    </p>
 
+    <BlazorTime.ToLocal DateTime="testTime" Format="htt"></BlazorTime.ToLocal> 
+
+    <br />
+    <button class="btn btn-primary btn-block" @onclick="Update">Update Time</button>
+  </div>
+</div>
+
+@code {
+  private DateTime testTime = DateTime.UtcNow;
+
+  private void Update()
+  {
+    testTime = DateTime.UtcNow;
+    StateHasChanged();
+  }
+}

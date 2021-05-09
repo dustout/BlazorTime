@@ -1,0 +1,10 @@
+﻿<span><utc-to-local format="@Format">@DateTime.ToString("O")</utc-to-local></span>
+
+
+@code {
+  [Parameter]
+  public DateTime DateTime { get; set; }
+
+  [Parameter]
+  public string Format { get; set; }
+}

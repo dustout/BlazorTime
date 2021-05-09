@@ -12,7 +12,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BlazorBrowserTime</title>
   <base href="~/" />
-  <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
   <link href="css/custom.css" rel="stylesheet" />
   <link href="css/site.css" rel="stylesheet" />
 </head>
@@ -33,6 +32,7 @@
   </div>
 
   <script src="_framework/blazor.server.js"></script>
+  <script src="_content/BlazorTime/blazorTime.js"></script>
   <script>
     Blazor.defaultReconnectionHandler._reconnectCallback = function (d) {
       document.location.reload();

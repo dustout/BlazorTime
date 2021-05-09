@@ -3,6 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Dustin Gamester</Authors>
+    <Description>A time conversion library for Blazor that allows you to display dates and times in the browsers local time. It can accept both UTC and server time as an input, and automatically display those times in the browsers local time.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/dustout/BlazorTime</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dustout/BlazorTime</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
   </PropertyGroup>
 
 

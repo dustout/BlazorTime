@@ -1,4 +1,4 @@
-# BlazorTime
+# Blazor Time
 Display the users local time while working in the servers local time or in UTC time
 
 ## Install

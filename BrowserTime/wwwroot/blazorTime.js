@@ -10,15 +10,7 @@ window.blazorTime = {
     var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
     var observer = new MutationObserver(function (mutations, observer) {
-      for (var i = 0; i < mutations.length; i++) {
-        var mutation = mutations[i];
-        if (mutation.target.nodeName == "UTC-TO-LOCAL") { //create
-          window.blazorTime.updateTag(mutation.target);
-        }
-        else if (mutation.target.parentNode && mutation.target.parentNode.nodeName == "UTC-TO-LOCAL") { //edit
-          window.blazorTime.updateTag(mutation.target.parentNode);
-        }
-      }
+      window.blazorTime.updateAllTags();
     });
 
     //watch for elements that have the blazor-time-observer attribute
@@ -74,3 +66,7 @@ window.blazorTime = {
   }
 };
 window.blazorTime.init();
+
+document.addEventListener('DOMContentLoaded', function () {
+  window.blazorTime.updateAllTags();
+}, false);

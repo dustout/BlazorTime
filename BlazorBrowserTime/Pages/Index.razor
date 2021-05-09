@@ -25,19 +25,38 @@
       UTC (RENDERED IN BROWSER): <BlazorTime.ToLocal DateTime="testUtcTime" Format="isoUtcDateTime"></BlazorTime.ToLocal>
     </p>
 
+    <p>
+      UTC (RENDERED IN BROWSER): <BlazorTime.ToLocal DateTime="testOneUtcTime" Format="isoUtcDateTime"></BlazorTime.ToLocal>
+    </p>
+
+    <p>@GuidString</p>
+
     <br />
-    <button class="btn btn-primary btn-block" @onclick="Update">Update Time</button> 
+    <button class="btn btn-primary btn-block" @onclick="UpdateOneTime">Update One Time</button>
+    <button class="btn btn-primary btn-block" @onclick="Update">Update Time</button>
+    <button class="btn btn-primary btn-block" @onclick="UpdateNotTime">Update Not Time</button>
   </div>
 </div>
 
 @code {
   private DateTime testUtcTime = DateTime.UtcNow;
   private DateTime testServerTime = DateTime.Now;
+  private DateTime testOneUtcTime = DateTime.UtcNow;
+  private String GuidString = Guid.NewGuid().ToString();
 
   private void Update()
   {
     testUtcTime = DateTime.UtcNow;
     testServerTime = DateTime.Now;
-    StateHasChanged();
+  }
+
+  private void UpdateOneTime()
+  {
+    testOneUtcTime = DateTime.UtcNow;
+  }
+
+  private void UpdateNotTime()
+  {
+    GuidString = Guid.NewGuid().ToString();
   }
 }

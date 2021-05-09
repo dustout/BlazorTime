@@ -10,6 +10,7 @@
     <PackageProjectUrl>https://github.com/dustout/BlazorTime</PackageProjectUrl>
     <RepositoryUrl>https://github.com/dustout/BlazorTime</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 

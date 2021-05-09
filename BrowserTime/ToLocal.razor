@@ -1,5 +1,6 @@
-﻿<span><utc-to-local format="@Format">@DateTime.ToString("O")</utc-to-local></span>
+﻿@inject IJSRuntime _js;
 
+<span><utc-to-local style="display:none" format="@Format" kind="@DateTime.Kind" utc-offset="@DateTime.ToString("zzz")">@DateTime.ToString("O")</utc-to-local></span>
 
 @code {
   [Parameter]
@@ -7,4 +8,9 @@
 
   [Parameter]
   public string Format { get; set; }
+
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    await _js.InvokeVoidAsync("window.blazorTime.updateAllTags");
+  }
 }

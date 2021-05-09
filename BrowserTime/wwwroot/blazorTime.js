@@ -38,10 +38,10 @@ window.blazorTime = {
       var displayLocal = document.createElement("display-utc-to-local");
 
       if (formatValue) {
-        displayLocal.innerHTML = dateFormat(tagDate, formatValue);
+        displayLocal.innerHTML = blazorDateFormat(tagDate, formatValue);
       }
       else {
-        displayLocal.innerHTML = dateFormat(tagDate);
+        displayLocal.innerHTML = blazorDateFormat(tagDate);
       }
       currentTag.after(displayLocal);
     }

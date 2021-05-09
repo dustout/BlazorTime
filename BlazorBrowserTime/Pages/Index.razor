@@ -8,19 +8,22 @@
 <div class="row m-0">
   <div class="col">
     <p>
-      BROWSER DATE: <utc-to-local format="yyyy-mm-dd">@testTime.ToString("O")</utc-to-local>
+      BROWSER DATE: <BlazorTime.ToLocal DateTime="testUtcTime" Format="yyyy-mm-dd"></BlazorTime.ToLocal>
     </p>
     <p>
-      BROWSER TIME: <utc-to-local format="shortTime">@testTime.ToString("O")</utc-to-local>
+      BROWSER TIME: <BlazorTime.ToLocal DateTime="testUtcTime" Format="shortTime"></BlazorTime.ToLocal>
     </p>
     <p>
-      BROWSER DEFAULT: <utc-to-local>@testTime.ToString("O")</utc-to-local>
-    </p>
-    <p>
-      UTC (RENDERED IN BROWSER): <utc-to-local format="isoUtcDateTime">@testTime.ToString("O")</utc-to-local>
+      BROWSER DEFAULT: <BlazorTime.ToLocal DateTime="testUtcTime"></BlazorTime.ToLocal>
     </p>
 
-    <BlazorTime.ToLocal DateTime="testTime" Format="htt"></BlazorTime.ToLocal> 
+    <p>
+      BROWSER DEFAULT (sent server time): <BlazorTime.ToLocal DateTime="testServerTime"></BlazorTime.ToLocal>
+    </p>
+
+    <p>
+      UTC (RENDERED IN BROWSER): <BlazorTime.ToLocal DateTime="testUtcTime" Format="isoUtcDateTime"></BlazorTime.ToLocal>
+    </p>
 
     <br />
     <button class="btn btn-primary btn-block" @onclick="Update">Update Time</button>
@@ -28,11 +31,13 @@
 </div>
 
 @code {
-  private DateTime testTime = DateTime.UtcNow;
+  private DateTime testUtcTime = DateTime.UtcNow;
+  private DateTime testServerTime = DateTime.Now;
 
   private void Update()
   {
-    testTime = DateTime.UtcNow;
+    testUtcTime = DateTime.UtcNow;
+    testServerTime = DateTime.Now;
     StateHasChanged();
   }
 }

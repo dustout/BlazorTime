@@ -8,21 +8,27 @@ window.blazorTime = {};
 window.blazorTime = {
   init: function () {
     var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-
     var observer = new MutationObserver(function (mutations, observer) {
-      window.blazorTime.updateAllTags();
+      for (var i = 0; i < mutations.length; i++)
+      {
+        var target = mutations[i].target;
+        if (target.nodeName == "UTC-TO-LOCAL") {
+          window.blazorTime.updateTag(target);
+        }
+      }
+      console.log(mutations);
     });
 
     //watch for elements that have the blazor-time-observer attribute
     observer.observe(document, {
-      subtree: true,
+      attributes: true,
       attributeFilter: ["blazor-time-observer"],
-      characterData: true
+      subtree: true,
     });
   },
   updateTag: function (htmlNode) {
     //get date from tag contents
-    var utctimeval = htmlNode.innerHTML;
+    var utctimeval = htmlNode.attributes["blazor-time-observer"].value;
     var tagDate = new Date(utctimeval);
 
     //get format from tag
@@ -32,27 +38,12 @@ window.blazorTime = {
       formatValue = format.value;
     }
 
-    //check if value after is display tag
-    var displayLocal = null;
-    var nextElement = htmlNode.nextElementSibling;
-    if (nextElement && nextElement.tagName == "DISPLAY-UTC-TO-LOCAL") {
-      //already exists so update that one
-      displayLocal = nextElement;
-    }
-    else {
-      //does not exist so make a new one
-      displayLocal = document.createElement("display-utc-to-local");
-
-      //insert display tag after hidden time tag
-      htmlNode.after(displayLocal);
-    }
-
     //set contents of display tag
     if (formatValue) {
-      displayLocal.innerHTML = blazorDateFormat(tagDate, formatValue);
+      htmlNode.innerHTML = blazorDateFormat(tagDate, formatValue);
     }
     else {
-      displayLocal.innerHTML = blazorDateFormat(tagDate);
+      htmlNode.innerHTML = blazorDateFormat(tagDate);
     }
   },
   updateAllTags: function () {
@@ -66,7 +57,3 @@ window.blazorTime = {
   }
 };
 window.blazorTime.init();
-
-document.addEventListener('DOMContentLoaded', function () {
-  window.blazorTime.updateAllTags();
-}, false);

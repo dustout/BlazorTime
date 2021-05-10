@@ -1,4 +1,7 @@
-﻿<span><utc-to-local style="display:none" format="@Format" blazor-time-observer="true">@DateTime.ToString("O")</utc-to-local></span>
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+<utc-to-local @ref="divElement" format="@Format" blazor-time-observer="@DateTime.ToString("O")"></utc-to-local>
 
 @code {
   [Parameter]
@@ -6,4 +9,14 @@
 
   [Parameter]
   public string Format { get; set; }
+
+  private ElementReference divElement;
+
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    if (firstRender)
+    {
+      await JSRuntime.InvokeVoidAsync("window.blazorTime.updateTag", divElement);
+    }
+  }
 }

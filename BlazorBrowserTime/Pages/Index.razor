@@ -12,25 +12,25 @@
     </p>
 
     <p>
-      BROWSER DATE: <BlazorTime.ToLocal DateTime="testUtcTime" Format="yyyy-mm-dd"></BlazorTime.ToLocal>
+      BROWSER DATE: <ToLocal DateTime="testUtcTime" Format="yyyy-mm-dd"></ToLocal>
     </p>
     <p>
-      BROWSER TIME: <BlazorTime.ToLocal DateTime="testUtcTime" Format="shortTime"></BlazorTime.ToLocal>
+      BROWSER TIME: <ToLocal DateTime="testUtcTime" Format="shortTime"></ToLocal>
     </p>
     <p>
-      BROWSER DEFAULT: <BlazorTime.ToLocal DateTime="testUtcTime"></BlazorTime.ToLocal>
-    </p>
-
-    <p>
-      BROWSER DEFAULT (sent server time): <BlazorTime.ToLocal DateTime="testServerTime"></BlazorTime.ToLocal>
+      BROWSER DEFAULT: <ToLocal DateTime="testUtcTime"></ToLocal>
     </p>
 
     <p>
-      UTC (RENDERED IN BROWSER): <BlazorTime.ToLocal DateTime="testUtcTime" Format="isoUtcDateTime"></BlazorTime.ToLocal>
+      BROWSER DEFAULT (sent server time): <ToLocal DateTime="testServerTime"></ToLocal>
     </p>
 
     <p>
-      UTC (RENDERED IN BROWSER): <BlazorTime.ToLocal DateTime="testOneUtcTime" Format="isoUtcDateTime"></BlazorTime.ToLocal>
+      UTC (RENDERED IN BROWSER): <ToLocal DateTime="testUtcTime" Format="isoUtcDateTime"></ToLocal>
+    </p>
+
+    <p>
+      UTC (RENDERED IN BROWSER): <ToLocal DateTime="testOneUtcTime" Format="isoUtcDateTime"></ToLocal>
     </p>
 
     <p>@GuidString</p>

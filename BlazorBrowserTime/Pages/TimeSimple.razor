@@ -1,0 +1,16 @@
+﻿@page "/timesimple"
+
+<p>
+  <ToLocal DateTime="testUtcTime" Format="yyyy-mm-dd"></ToLocal>
+</p>
+
+<button @onclick="Update">Update Time</button>
+
+@code {
+  private DateTime testUtcTime = DateTime.UtcNow;
+
+  private void Update()
+  {
+    testUtcTime = DateTime.UtcNow;
+  }
+}

@@ -20,26 +20,27 @@ A time conversion library for Blazor that allows you to display dates and times 
 2. In `_Imports.razor`, add `@using BlazorTime`.
 
 ## Usage
-    @page "/TimeSimple"
+``` RAZOR
+@page "/TimeSimple"
 
-    <p>
-      <ToLocal DateTime="testUtcTime" Format="ddd mmm dd yyyy HH:MM:ss"></ToLocal>
-      <ToLocal DateTime="testServerTime" Format="default"></ToLocal>
-    </p>
+<p>
+  <ToLocal DateTime="testUtcTime" Format="ddd mmm dd yyyy HH:MM:ss"></ToLocal>
+  <ToLocal DateTime="testServerTime" Format="default"></ToLocal>
+</p>
 
-    <button @onclick="Update">Update Time</button>
+<button @onclick="Update">Update Time</button>
 
-    @code {
-      private DateTime testUtcTime = DateTime.UtcNow;
-      private DateTime testServerTime = DateTime.Now;
+@code {
+  private DateTime testUtcTime = DateTime.UtcNow;
+  private DateTime testServerTime = DateTime.Now;
 
-      private void Update()
-      {
-        testUtcTime = DateTime.UtcNow;
-        testServerTime = DateTime.Now;
-      }
-    }
-
+  private void Update()
+  {
+    testUtcTime = DateTime.UtcNow;
+    testServerTime = DateTime.Now;
+  }
+}
+```
 
 
 ### Mask options

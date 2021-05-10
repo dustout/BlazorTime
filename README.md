@@ -1,5 +1,6 @@
 # Blazor Time
-Display the users local time while working in the servers local time or in UTC time
+
+A time conversion library for Blazor that allows you to display dates and times in the browsers local time. It can accept both UTC and server time as an input, and automatically display those times in the browsers local time.
 
 ## Install
 [![NuGet Pre Release](https://img.shields.io/nuget/v/BlazorTime.svg)](https://www.nuget.org/packages/BlazorTime/)

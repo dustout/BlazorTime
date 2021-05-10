@@ -1,0 +1,20 @@
+﻿@page "/"
+
+<h1><a href="/two">Hello, world!</a></h1>
+
+<p>
+  Current time: <ToLocal DateTime="testTime"></ToLocal>
+</p>
+
+<button class="btn btn-primary" @onclick="Update">Update</button>
+
+
+@code{
+  private DateTime testTime = DateTime.UtcNow;
+
+  private void Update()
+  {
+
+    testTime = DateTime.UtcNow;
+  }
+}

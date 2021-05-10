@@ -102,6 +102,6 @@ Display the users local time while working in the servers local time or in UTC t
 
 
 ## Thanks To
-[node-dateformat](https://github.com/felixge/node-dateformat/blob/master/Readme.md) for the date formatter
+[node-dateformat](https://github.com/felixge/node-dateformat/blob/master/Readme.md) for the date formatter and the mask/named formats section of the readme
 
 [Microsoft Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) for making Blazor

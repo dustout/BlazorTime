@@ -22,16 +22,23 @@ Display the users local time while working in the servers local time or in UTC t
     @page "/TimeSimple"
 
     <p>
-      <ToLocal DateTime="testUtcTime" Format="yyyy-mm-dd"></ToLocal>
+      <ToLocal DateTime="testUtcTime" Format="ddd mmm dd yyyy HH:MM:ss"></ToLocal>
+      <ToLocal DateTime="testServerTime" Format="default"></ToLocal>
     </p>
 
     <button @onclick="Update">Update Time</button>
 
     @code {
       private DateTime testUtcTime = DateTime.UtcNow;
+      private DateTime testServerTime = DateTime.Now;
 
       private void Update()
       {
         testUtcTime = DateTime.UtcNow;
+        testServerTime = DateTime.Now;
       }
     }
+
+
+## Date Time Formats
+See [Javascript Date Format](https://blog.stevenlevithan.com/archives/date-time-format)

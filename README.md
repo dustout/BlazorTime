@@ -21,8 +21,6 @@ A time conversion library for Blazor that allows you to display dates and times 
 
 ## Usage
 ``` RAZOR
-@page "/TimeSimple"
-
 <p>
   @*UTC to browser time*@
   <ToLocal DateTime="testUtcTime" Format="ddd mmm dd yyyy HH:MM:ss"></ToLocal>

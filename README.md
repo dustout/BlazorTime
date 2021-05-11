@@ -40,7 +40,7 @@ A time conversion library for Blazor that allows you to display dates and times 
 
 <p>
   @*display as time example 2pm*@
-  <ToLocal DateTime="testUtcTime" Format="yyyy-mm-dd"></ToLocal>
+  <ToLocal DateTime="testUtcTime" Format="htt"></ToLocal>
 </p>
 
 <button @onclick="Update">Update Time</button>

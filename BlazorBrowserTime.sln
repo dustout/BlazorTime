@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorBrowserTime", "Blazor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTime", "BrowserTime\BlazorTime.csproj", "{BFE118C2-EC21-4586-9538-755B4CDFB070}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorBrowserTimeDotNet5Test", "BlazorBrowserTimeDotNet5\BlazorBrowserTimeDotNet5Test.csproj", "{91FF3C72-EC75-4D90-9554-F744BB08EE55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorBrowserTimeDotNet5", "BlazorBrowserTimeDotNet5\BlazorBrowserTimeDotNet5.csproj", "{91FF3C72-EC75-4D90-9554-F744BB08EE55}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssemblyTimeTest", "BlazorWebAssemblyTimeTest\BlazorWebAssemblyTimeTest.csproj", "{FF764B16-B102-4599-B9C2-24449CD13455}"
 EndProject

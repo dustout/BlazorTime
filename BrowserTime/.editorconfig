@@ -1,0 +1,6 @@
+root = true
+[*]
+indent_style = space
+
+[*.{cs,razor,js}]
+indent_size = 2

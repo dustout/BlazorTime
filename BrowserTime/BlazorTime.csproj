@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RazorLangVersion>3.0</RazorLangVersion>
+      <TargetFramework>net6.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Dustin Gamester</Authors>
     <Description>A time conversion library for Blazor that allows you to display dates and times in the browsers local time. It can accept both UTC and server time as an input, and automatically display those times in the browsers local time.</Description>
@@ -15,8 +14,8 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.14" />
   </ItemGroup>
 
 </Project>

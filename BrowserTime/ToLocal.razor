@@ -1,21 +1,69 @@
-﻿@inject IJSRuntime JSRuntime
+﻿@using System.Reflection;
+@inject IJSRuntime JSRuntime
 
-<utc-to-local @ref="divElement" format="@Format" blazor-time-observer="@DateTime.ToString("O")"></utc-to-local>
+<span class="blazor-time" @ref="divElement" data-format="@Format" data-blazor-time-observer="@DateTime.ToString("O")"></span>
 
 @code {
-  [Parameter]
-  public DateTime DateTime { get; set; }
+    [Parameter]
+    public DateTime DateTime { get; set; }
 
-  [Parameter]
-  public string Format { get; set; }
+    [Parameter]
+    public string Format { get; set; }
 
-  private ElementReference divElement;
+    private ElementReference divElement;
 
-  protected override async Task OnAfterRenderAsync(bool firstRender)
-  {
-    if (firstRender)
+    private bool _created;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-      await JSRuntime.InvokeVoidAsync("window.blazorTime.updateTag", divElement);
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("window.blazorTime.updateTag", divElement);
+            _created = true;
+        }
     }
-  }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (_created)
+        {
+            await JSRuntime.InvokeVoidAsync("window.blazorTime.updateTag", divElement);
+        }
+    }
+
+
+    [JSInvokable]
+    public static Task<string> BlazorDateFormat(string tagDate, string formatValue)
+    {
+        var localDate = DateTimeOffset.Parse(tagDate);
+        if (formatValue.StartsWith("To"))
+        {
+
+            string value = string.Empty;
+            if (formatValue == "ToUniversalTime")
+            {
+                var dateValue = localDate.ToUniversalTime();
+                value = dateValue.ToString();
+            }
+            else
+            {
+                
+                MethodInfo method = typeof(DateTime).GetMethod(formatValue);
+                value = method.Invoke(localDate.DateTime, new object[] { }) as string;
+            }
+
+            return Task.FromResult(value);
+        }
+        else
+        {
+            return Task.FromResult(localDate.ToString(formatValue));
+        }
+    }
+
+    [JSInvokable]
+    public static Task<string> BlazorDate(string tagDate)
+    {
+        var localDate = DateTimeOffset.Parse(tagDate);
+        return Task.FromResult(localDate.ToString());
+    }
 }

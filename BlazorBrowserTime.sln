@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorBrowserTime", "BlazorBrowserTime\BlazorBrowserTime.csproj", "{2CFD970B-F965-4492-90FE-1597F27C6BDF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorTime", "BrowserTime\BlazorTime.csproj", "{BFE118C2-EC21-4586-9538-755B4CDFB070}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorBrowserTimeDotNet5", "BlazorBrowserTimeDotNet5\BlazorBrowserTimeDotNet5.csproj", "{91FF3C72-EC75-4D90-9554-F744BB08EE55}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2CFD970B-F965-4492-90FE-1597F27C6BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2CFD970B-F965-4492-90FE-1597F27C6BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2CFD970B-F965-4492-90FE-1597F27C6BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2CFD970B-F965-4492-90FE-1597F27C6BDF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BFE118C2-EC21-4586-9538-755B4CDFB070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BFE118C2-EC21-4586-9538-755B4CDFB070}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFE118C2-EC21-4586-9538-755B4CDFB070}.Release|Any CPU.ActiveCfg = Release|Any CPU

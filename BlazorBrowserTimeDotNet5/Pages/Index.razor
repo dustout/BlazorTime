@@ -1,7 +1,65 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<br />
+<h1 class="text-center">⌚ Time</h1>
+<hr />
 
-Welcome to your new app.
+<div class="row m-0">
+    <div class="col">
+        <p>
+            <a href="next">Change Page</a>
+        </p>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+        <p>
+            BROWSER DATE: <ToLocal DateTime="testUtcTime" Format="yyyy-mm-dd"></ToLocal>
+        </p>
+        <p>
+            BROWSER TIME: <ToLocal DateTime="testUtcTime" Format="ToShortDateString"></ToLocal>
+        </p>
+        <p>
+            BROWSER DEFAULT: <ToLocal DateTime="testUtcTime"></ToLocal>
+        </p>
+
+        <p>
+            BROWSER DEFAULT (sent server time): <ToLocal DateTime="testServerTime"></ToLocal>
+        </p>
+
+        <p>
+            UTC (RENDERED IN BROWSER): <ToLocal DateTime="testUtcTime" Format="ToUniversalTime"></ToLocal>
+        </p>
+
+        <p>
+            UTC (RENDERED IN BROWSER): <ToLocal DateTime="testOneUtcTime" Format="ToUniversalTime"></ToLocal>
+        </p>
+
+        <p>@GuidString</p>
+
+        <br />
+        <button class="btn btn-primary btn-block" @onclick="UpdateOneTime">Update One Time</button>
+        <button class="btn btn-primary btn-block" @onclick="Update">Update Time</button>
+        <button class="btn btn-primary btn-block" @onclick="UpdateNotTime">Update Not Time</button>
+    </div>
+</div>
+
+@code {
+    private DateTime testUtcTime = DateTime.UtcNow;
+    private DateTime testServerTime = DateTime.Now;
+    private DateTime testOneUtcTime = DateTime.UtcNow;
+    private String GuidString = Guid.NewGuid().ToString();
+
+    private void Update()
+    {
+        testUtcTime = DateTime.UtcNow;
+        testServerTime = DateTime.Now;
+    }
+
+    private void UpdateOneTime()
+    {
+        testOneUtcTime = DateTime.UtcNow;
+    }
+
+    private void UpdateNotTime()
+    {
+        GuidString = Guid.NewGuid().ToString();
+    }
+}

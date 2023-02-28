@@ -1,0 +1,73 @@
+﻿@page "/next"
+
+<br />
+<h1 class="text-center">📃 Page Change</h1>
+<hr />
+
+<div class="row m-0">
+  <div class="col">
+    <p>
+      <a href="/">Back</a>
+    </p>
+  </div>
+</div>
+
+<div class="row m-0">
+  <div class="col">
+    <p>
+      <a href="next">Change Page</a>
+    </p>
+
+    <p>
+      BROWSER DATE: <BlazorTime.ToLocal DateTime="testUtcTime" Format="yyyy-mm-dd"></BlazorTime.ToLocal>
+    </p>
+    <p>
+      BROWSER TIME: <BlazorTime.ToLocal DateTime="testUtcTime" Format="shortTime"></BlazorTime.ToLocal>
+    </p>
+    <p>
+      BROWSER DEFAULT: <BlazorTime.ToLocal DateTime="testUtcTime"></BlazorTime.ToLocal>
+    </p>
+
+    <p>
+      BROWSER DEFAULT (sent server time): <BlazorTime.ToLocal DateTime="testServerTime"></BlazorTime.ToLocal>
+    </p>
+
+    <p>
+      UTC (RENDERED IN BROWSER): <BlazorTime.ToLocal DateTime="testUtcTime" Format="isoUtcDateTime"></BlazorTime.ToLocal>
+    </p>
+
+    <p>
+      UTC (RENDERED IN BROWSER): <BlazorTime.ToLocal DateTime="testOneUtcTime" Format="isoUtcDateTime"></BlazorTime.ToLocal>
+    </p>
+
+    <p>@GuidString</p>
+
+    <br />
+    <button class="btn btn-primary btn-block" @onclick="UpdateOneTime">Update One Time</button>
+    <button class="btn btn-primary btn-block" @onclick="Update">Update Time</button>
+    <button class="btn btn-primary btn-block" @onclick="UpdateNotTime">Update Not Time</button>
+  </div>
+</div>
+
+@code {
+  private DateTime testUtcTime = DateTime.UtcNow;
+  private DateTime testServerTime = DateTime.Now;
+  private DateTime testOneUtcTime = DateTime.UtcNow;
+  private String GuidString = Guid.NewGuid().ToString();
+
+  private void Update()
+  {
+    testUtcTime = DateTime.UtcNow;
+    testServerTime = DateTime.Now;
+  }
+
+  private void UpdateOneTime()
+  {
+    testOneUtcTime = DateTime.UtcNow;
+  }
+
+  private void UpdateNotTime()
+  {
+    GuidString = Guid.NewGuid().ToString();
+  }
+}
